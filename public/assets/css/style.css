@@ -1,0 +1,73 @@
+body {
+	background: url("../img/escheresque.png");
+	font-family: 'Josefin Slab', cursive;
+}
+
+h1 {
+	border: 10px solid white;
+	border-radius: 30px;
+	background-color: #68c69d;
+	color: white;
+	text-align: center;
+	width: 600px;
+	font-size: 50px;
+	margin: auto;
+	display: block;
+	padding: 15px;
+}
+
+#search, #results {
+	border: 10px solid white;
+	border-radius: 30px;
+	background-color: #68c69d;
+	color: white;
+	text-align: center;
+	width: 800px;
+	font-size: 50px;
+	margin: auto;
+	display: block;
+	padding: 15px;
+}
+
+.each {
+	border: 5px solid white;
+	border-radius: 30px;
+	margin: auto;
+	display: block;
+	padding: 15px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+form {
+	font-size: 25px;
+}
+
+input {
+	width: 400px;
+	height: 30px;
+	font-size: 25px;
+	font-family: 'Josefin Slab', cursive;
+	color: #68c69d;
+}
+
+button {
+	height: 35px;
+	font-size: 25px;
+	font-family: 'Josefin Slab', cursive;
+}
+
+.headline {
+	font-size: 25px;
+	text-align: left;
+}
+
+.lead {
+	font-size: 20px;
+	text-align: left;
+}
+
+a, a:hover, a:active, a:visited {
+	text-decoration: underline;
+	color: inherit;
+}
