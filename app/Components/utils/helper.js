@@ -1,4 +1,4 @@
-var NYTkey = "0c536103be8041e2b04d87ac218922e6";
+var NYTkey = "";
 
 var helper = {
 

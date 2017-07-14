@@ -24,6 +24,8 @@ var Results = React.createClass({
 					<div className="each">
 					<div className="headline"><a href={this.props.results.response.docs[0].web_url}>{this.props.results.response.docs[0].headline.main}</a></div>
 					<div className="lead">{this.props.results.response.docs[0].lead_paragraph}</div>
+					<form action="/saveArticle" method="POST">
+						<
 					</div>
 					<div className="each">
 					<div className="headline"><a href={this.props.results.response.docs[1].web_url}>{this.props.results.response.docs[1].headline.main}</a></div>
