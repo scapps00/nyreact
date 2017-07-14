@@ -1,20 +1,16 @@
-var React = require("react");
-var mongoose = require("mongoose");
+var helper = require("./../utils/helper.js");
 
-var savedArticles = [];
-
-Articles.find({})
-.exec(function(error, articles) {
-	if (error) console.log(error);
-	else {
-		savedArticles = articles;
-	}
-});
+var renderArticles = helper.renderArticles;
 
 var Saved = React.createClass({
+
 	render: function() {
 		return (
-			console.log(savedArticles);
+			<div>
+			{renderArticles}
+			</div>
 		);
 	}
 });
+
+module.exports = Saved;

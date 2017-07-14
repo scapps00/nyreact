@@ -3,8 +3,6 @@ var mongoose = require("mongoose");
 var path = require("path");
 var bodyParser = require("body-parser");
 
-var Articles = require("./models/Articles.js");
-
 mongoose.Promise = Promise;
 
 var app = express();
@@ -33,16 +31,6 @@ app.post("/saveArticle", function(req, res) {
 	entry.save(function(error, doc) {
 		if (error) console.log(error);
 	});
-});
-
-app.get("/test", function(req, res) {
-	Articles.find({})
-	.exec(function(error, articles) {
-		if (error) console.log(error);
-		else {
-			console.log(articles);
-		}
-	})
 });
 
 app.use(express.static(path.join(__dirname, "/public")));

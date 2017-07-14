@@ -7,6 +7,8 @@ var Search = require("./children/Search.js");
 
 var Results = require("./children/Results.js");
 
+var Saved = require("./children/Saved.js");
+
 var trigger = true;
 
 var NYTkey = "";
@@ -71,6 +73,8 @@ var Main = React.createClass({
 	  		<br />
 	  		<br />
 	  		<Results results={this.state.results}/>
+	  		<br />
+	  		<Saved /> 
 	  		</div>
 
 	    );
