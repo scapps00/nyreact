@@ -1,13 +1,15 @@
 
 var React = require("react");
 
-var Link = require("react-router");
+var Link = require("react-router").Link;
 
 var Search = require("./children/Search.js");
 
 var Results = require("./children/Results.js");
 
 var trigger = true;
+
+var NYTkey = "";
 
 var Main = React.createClass({
 

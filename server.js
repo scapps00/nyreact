@@ -3,6 +3,8 @@ var mongoose = require("mongoose");
 var path = require("path");
 var bodyParser = require("body-parser");
 
+var Articles = require("./models/Articles.js");
+
 mongoose.Promise = Promise;
 
 var app = express();
@@ -11,7 +13,7 @@ app.use(bodyParser.urlencoded({
 	extended: false
 }));
 
-mongoose.connect("mongodb://localhost/");
+mongoose.connect("mongodb://localhost:3000/");
 var db = mongoose.connection;
 
 db.on("error", function(error) {
@@ -33,6 +35,16 @@ app.post("/saveArticle", function(req, res) {
 	});
 });
 
+app.get("/test", function(req, res) {
+	Articles.find({})
+	.exec(function(error, articles) {
+		if (error) console.log(error);
+		else {
+			console.log(articles);
+		}
+	})
+});
+
 app.use(express.static(path.join(__dirname, "/public")));
 
-app.listen(27017);
+app.listen(3000);
