@@ -1,6 +1,4 @@
-var helper = require("./../utils/helper.js");
-
-var renderArticles = helper.renderArticles;
+var React = require("react");
 
 var Saved = React.createClass({
 
