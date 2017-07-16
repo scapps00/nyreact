@@ -11,9 +11,11 @@ var Results = require("./children/Results.js");
 
 var Saved = require("./children/Saved.js");
 
+var helper = require("./utils/helper.js")
+
 var trigger = true;
 
-var NYTkey = "";
+var NYTkey = helper.NYTkey;
 
 var Main = React.createClass({
 

@@ -8,7 +8,7 @@ var Articles = require("./models/Articles.js");
 
 mongoose.Promise = Promise;
 
-mongoose.connect("mongodb://localhost:3000");
+mongoose.connect("mongodb://heroku_vmqqgqz9:lp2s75apukle8jkb3oir04g6s9@ds161262.mlab.com:61262/heroku_vmqqgqz9");
 var db = mongoose.connection;
 
 db.on("error", function(error) {

@@ -30,7 +30,7 @@ var Search = React.createClass({
 	render: function() {
 		return (
 			<div id="search">
-			<div className="header">Search</div>
+			<div className="header">Search</div><br />
 			<form onSubmit={this.submit}>
 				Topic
 				<br />
