@@ -8,7 +8,7 @@ var Articles = require("./models/Articles.js");
 
 mongoose.Promise = Promise;
 
-mongoose.connect("mongodb://localhost:3000");
+mongoose.connect("mongodb://localhost");
 var db = mongoose.connection;
 
 db.on("error", function(error) {
@@ -31,7 +31,18 @@ app.get("/", function(req, res) {
 	res.send("index.html");
 });
 
-app.post("/pullArticles", function(req, res) {
+app.post("/save", function(req, res) {
+	var article = {};
+	article.link = req.body.link;
+	article.headline = req.body.headline;
+	article.lead = req.body.lead;
+	var entry = new Articles(article);
+	entry.save(function(error, doc) {
+		if (error) console.log(error);
+	});
+});
+
+app.get("/pullArticles", function(req, res) {
 
 		var savedArticles = [];
 

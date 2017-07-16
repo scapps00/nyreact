@@ -20,11 +20,14 @@ var Main = React.createClass({
 			search: "",
 			start: "",
 			end: "",
-			results: ""}
+			results: "",
+			saved: []
+		}
 	},
 
 	componentDidUpdate: function(prevProps, prevState) {
-		if (trigger == false) {
+		if (trigger === false) {
+			trigger = true;
 			var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
 			url += "?" + $.param({
 				"api-key": NYTkey,
@@ -39,9 +42,7 @@ var Main = React.createClass({
 			}).done(function(results) {
 				console.log(results);
 				this.setState({ results: results });
-				trigger = true;
 			}).fail(function(error) {
-				trigger = true;
 				throw error;
 			});
 		}
@@ -61,6 +62,10 @@ var Main = React.createClass({
 		});
 	},
 
+	updateSaved: function(data) {
+		this.setState({ saved: data});
+	},
+
   	render: function() {
 
   		return (
@@ -68,13 +73,13 @@ var Main = React.createClass({
 	  		<br />
 	  		<br />
 	  		<br />
-	  		<Search setSearch={this.setSearch}/>
+	  		<Search setSearch={this.setSearch} />
 	  		<br />
 	  		<br />
 	  		<br />
-	  		<Results results={this.state.results}/>
+	  		<Results results={this.state.results} updateSaved={this.updateSaved} />
 	  		<br />
-	  		<Saved /> 
+	  		<Saved savedArticles={this.state.saved}/> 
 	  		</div>
 
 	    );

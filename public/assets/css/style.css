@@ -16,7 +16,7 @@ h1 {
 	padding: 15px;
 }
 
-#search, #results {
+#search, #results, #saved {
 	border: 10px solid white;
 	border-radius: 30px;
 	background-color: #68c69d;

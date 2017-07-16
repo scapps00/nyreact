@@ -14,7 +14,7 @@ var ArticlesSchema = new Schema({
 	},
 	lead: {
 		type: String,
-		required: true
+		required: false
 	}//,
 	// notes: [{
 	// 	type: Schema.Types.ObjectId,

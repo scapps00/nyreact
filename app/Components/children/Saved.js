@@ -20,7 +20,8 @@ var Saved = React.createClass({
 
 	getInitialState: function() {
 		return { 
-			savedArticles: ""}
+			savedArticles: this.props.savedArticles
+		}
 	},
 
 	componentDidMount: function() {
@@ -28,10 +29,10 @@ var Saved = React.createClass({
 		$.ajax({
 			context: this,
 			url: url,
-			method: "POST"
+			method: "GET"
 		}).done(function(results) {
-			console.log(results);
-			results = JSON.stringify(results);
+			//console.log(results);
+			//results = JSON.stringify(results);
 			this.setState({ savedArticles: results});	
 		}).fail(function(error) {
 			throw error;
@@ -39,9 +40,15 @@ var Saved = React.createClass({
 	},
 
 	render: function() {
+		var toReturn = [];
+
+		for (var i = 0; i< this.state.savedArticles.length; i++) {
+				toReturn.push(<div className="each" key={i}><div className="headline"><a href={this.state.savedArticles[i].link}>{this.state.savedArticles[i].headline}</a></div><div className="lead">{this.state.savedArticles[i].lead}</div></div>);
+		}
+
 		return (
-			<div>
-			{this.state.savedArticles}
+			<div id="saved">
+				{toReturn}
 			</div>
 		);
 	}
