@@ -64,4 +64,18 @@ app.get("/pullArticles", function(req, res) {
 
 });
 
+app.post("/deleteArticle/:id", function(req, res) {
+	Articles.remove({ _id: req.params.id}, function(error) {
+		if (error) console.log(error);
+		Articles.find({})
+		.exec(function(error, articles) {
+			if (error) console.log(error);
+			else {
+				console.log(articles);
+				res.send(articles);
+			}
+		});
+	});
+});
+
 app.listen(3000);

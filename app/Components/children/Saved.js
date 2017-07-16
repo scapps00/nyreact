@@ -25,7 +25,7 @@ var Saved = React.createClass({
 	},
 
 	componentDidMount: function() {
-		var url = (path.join(__dirname, "pullArticles"));
+		var url = path.join(__dirname, "pullArticles");
 		$.ajax({
 			context: this,
 			url: url,
@@ -39,11 +39,24 @@ var Saved = React.createClass({
 		});
 	},
 
+	delete: function(event) {
+		event.preventDefault;
+		$.ajax({
+			context: this,
+			url: path.join(__dirname, "deleteArticle", event.target.id),
+			method: "POST"
+		}).done(function(results) {
+			this.props.updateSaved(results);
+		}).fail(function(error) {
+			throw error;
+		});
+	},
+
 	render: function() {
 		var toReturn = [];
 
 		for (var i = 0; i< this.props.savedArticles.length; i++) {
-				toReturn.push(<div className="each" key={i}><div className="headline"><a href={this.props.savedArticles[i].link}>{this.props.savedArticles[i].headline}</a></div><div className="lead">{this.props.savedArticles[i].lead}</div></div>);
+				toReturn.push(<div className="each" key={i}><div className="headline"><a href={this.props.savedArticles[i].link}>{this.props.savedArticles[i].headline}</a></div><div className="lead">{this.props.savedArticles[i].lead}</div><button id={this.props.savedArticles[i]._id} className="deleteButton" onClick={this.delete}>Delete</button></div>);
 		}
 
 		return (

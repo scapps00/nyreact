@@ -95,7 +95,7 @@ var Main = React.createClass({
 	  		<br />
 	  		<Results results={this.state.results} updateSaved={this.updateSaved} />
 	  		<br />
-	  		<Saved savedArticles={this.state.saved}/> 
+	  		<Saved savedArticles={this.state.saved} updateSaved={this.updateSaved} /> 
 	  		</div>
 
 	    );
