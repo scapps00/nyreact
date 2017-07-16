@@ -46,6 +46,7 @@ var Main = React.createClass({
 
 	componentDidUpdate: function(prevProps, prevState) {
 		if (trigger === false) {
+			console.log(NYTkey);
 			trigger = true;
 			var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
 			url += "?" + $.param({
