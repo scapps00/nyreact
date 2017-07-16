@@ -55,6 +55,9 @@ button {
 	height: 35px;
 	font-size: 25px;
 	font-family: 'Josefin Slab', cursive;
+	border: 2px solid white;
+	background-color: #68c69d;
+	color: white;
 }
 
 .headline {
@@ -70,4 +73,12 @@ button {
 a, a:hover, a:active, a:visited {
 	text-decoration: underline;
 	color: inherit;
+}
+
+.deleteButton, .saveButton {
+	margin-left: 675px;
+}
+
+.header {
+	font-size: 35px;
 }

@@ -55,6 +55,7 @@ var Results = React.createClass({
 			return (
 				//didn't figure out til later how to for loop this
 				<div id="results">
+					<div className="header">Results</div>
 					<div className="each">
 					<div className="headline"><a href={this.props.results.response.docs[0].web_url}>{this.props.results.response.docs[0].headline.main}</a></div>
 					<div className="lead">{this.props.results.response.docs[0].lead_paragraph}</div>
@@ -62,7 +63,7 @@ var Results = React.createClass({
 						<input name="link" type="hidden" value={this.props.results.response.docs[0].web_url} />
 						<input name="headline" type="hidden" value={this.props.results.response.docs[0].headline.main} />
 						<input name="lead" type="hidden" value={this.props.results.response.docs[0].lead_paragraph} />
-						<input id="0" type="submit" value="Submit" onClick={this.saveArticle}/>
+						<button id="0" type="submit" onClick={this.saveArticle} className="saveButton">Save</button>
 					</form>
 					</div>
 					<div className="each">
@@ -72,7 +73,7 @@ var Results = React.createClass({
 						<input name="link" type="hidden" value={this.props.results.response.docs[1].web_url} />
 						<input name="headline" type="hidden" value={this.props.results.response.docs[1].headline.main} />
 						<input name="lead" type="hidden" value={this.props.results.response.docs[1].lead_paragraph} />
-						<input id="1" type="submit" value="Submit" onClick={this.saveArticle} />
+						<button id="1" type="submit" onClick={this.saveArticle} className="saveButton">Save</button>
 					</form>
 					</div>
 					<div className="each">
@@ -82,7 +83,7 @@ var Results = React.createClass({
 						<input name="link" type="hidden" value={this.props.results.response.docs[2].web_url} />
 						<input name="headline" type="hidden" value={this.props.results.response.docs[2].headline.main} />
 						<input name="lead" type="hidden" value={this.props.results.response.docs[2].lead_paragraph} />
-						<input id="2" type="submit" value="Submit" onClick={this.saveArticle} />
+						<button id="2" type="submit" onClick={this.saveArticle} className="saveButton">Save</button>
 					</form>
 					</div>
 					<div className="each">
@@ -92,7 +93,7 @@ var Results = React.createClass({
 						<input name="link" type="hidden" value={this.props.results.response.docs[3].web_url} />
 						<input name="headline" type="hidden" value={this.props.results.response.docs[3].headline.main} />
 						<input name="lead" type="hidden" value={this.props.results.response.docs[3].lead_paragraph} />
-						<input id="3" type="submit" value="Submit" onClick={this.saveArticle} />
+						<button id="3" type="submit" onClick={this.saveArticle} className="saveButton">Save</button>
 					</form>
 					</div>
 					<div className="each">
@@ -102,7 +103,7 @@ var Results = React.createClass({
 						<input name="link" type="hidden" value={this.props.results.response.docs[4].web_url} />
 						<input name="headline" type="hidden" value={this.props.results.response.docs[4].headline.main} />
 						<input name="lead" type="hidden" value={this.props.results.response.docs[4].lead_paragraph} />
-						<input id="4" type="submit" value="Submit" onClick={this.saveArticle} />
+						<button id="4" type="submit" onClick={this.saveArticle} className="saveButton">Save</button>
 					</form>
 					</div>
 				</div>

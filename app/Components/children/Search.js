@@ -24,11 +24,13 @@ var Search = React.createClass({
 			start: "",
 			end: ""
 		});
+		
 	},
 
 	render: function() {
 		return (
 			<div id="search">
+			<div className="header">Search</div>
 			<form onSubmit={this.submit}>
 				Topic
 				<br />

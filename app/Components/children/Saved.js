@@ -53,7 +53,7 @@ var Saved = React.createClass({
 	},
 
 	render: function() {
-		var toReturn = [];
+		var toReturn = [<div key={"-1"} className="header">Saved Articles</div>];
 
 		for (var i = 0; i< this.props.savedArticles.length; i++) {
 				toReturn.push(<div className="each" key={i}><div className="headline"><a href={this.props.savedArticles[i].link}>{this.props.savedArticles[i].headline}</a></div><div className="lead">{this.props.savedArticles[i].lead}</div><button id={this.props.savedArticles[i]._id} className="deleteButton" onClick={this.delete}>Delete</button></div>);
