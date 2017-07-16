@@ -3,21 +3,36 @@ var path = require("path");
 
 var Results = React.createClass({
 
-	pullArticles: function() {
-		setTimeout(function() {
-			var url = (path.join(__dirname, "pullArticles"));
+	saveArticle: function(event) {
+		event.preventDefault();
+		var targetID = Number(event.target.id);
+		$.ajax({
+			context: this,
+			data: {
+				link: this.props.results.response.docs[targetID].web_url,
+				headline: this.props.results.response.docs[targetID].headline.main,
+				lead: this.props.results.response.docs[targetID].lead_paragraph
+			},
+			url: path.join(__dirname, "save"),
+			method: "POST"
+		}).done(function(results) {
+			console.log(results);
+			var url = path.join(__dirname, "pullArticles");
 			$.ajax({
 				context: this,
 				url: url,
 				method: "GET"
-			}).done(function(results) {
+			}).done(function(results2) {
+				console.log(results2);
 				//console.log(results);
 				//results = JSON.stringify(results);
-				this.props.updateSaved(results);	
+				this.props.updateSaved(results2);	
 			}).fail(function(error) {
 				throw error;
 			});
-		}.bind(this), 2000);
+		}).fail(function(error) {
+				throw error;
+		});
 	},
 
 	render: function() {
@@ -43,51 +58,51 @@ var Results = React.createClass({
 					<div className="each">
 					<div className="headline"><a href={this.props.results.response.docs[0].web_url}>{this.props.results.response.docs[0].headline.main}</a></div>
 					<div className="lead">{this.props.results.response.docs[0].lead_paragraph}</div>
-					<form action="/save" method="POST">
+					<form>
 						<input name="link" type="hidden" value={this.props.results.response.docs[0].web_url} />
 						<input name="headline" type="hidden" value={this.props.results.response.docs[0].headline.main} />
 						<input name="lead" type="hidden" value={this.props.results.response.docs[0].lead_paragraph} />
-						<input type="submit" value="Submit" />
+						<input id="0" type="submit" value="Submit" onClick={this.saveArticle}/>
 					</form>
 					</div>
 					<div className="each">
 					<div className="headline"><a href={this.props.results.response.docs[1].web_url}>{this.props.results.response.docs[1].headline.main}</a></div>
 					<div className="lead">{this.props.results.response.docs[1].lead_paragraph}</div>
-					<form action="/save" method="POST">
+					<form>
 						<input name="link" type="hidden" value={this.props.results.response.docs[1].web_url} />
 						<input name="headline" type="hidden" value={this.props.results.response.docs[1].headline.main} />
 						<input name="lead" type="hidden" value={this.props.results.response.docs[1].lead_paragraph} />
-						<input type="submit" value="Submit" onClick={this.pullArticles} />
+						<input id="1" type="submit" value="Submit" onClick={this.saveArticle} />
 					</form>
 					</div>
 					<div className="each">
 					<div className="headline"><a href={this.props.results.response.docs[2].web_url}>{this.props.results.response.docs[2].headline.main}</a></div>
 					<div className="lead">{this.props.results.response.docs[2].lead_paragraph}</div>
-					<form action="/save" method="POST">
+					<form>
 						<input name="link" type="hidden" value={this.props.results.response.docs[2].web_url} />
 						<input name="headline" type="hidden" value={this.props.results.response.docs[2].headline.main} />
 						<input name="lead" type="hidden" value={this.props.results.response.docs[2].lead_paragraph} />
-						<input type="submit" value="Submit" onClick={this.pullArticles} />
+						<input id="2" type="submit" value="Submit" onClick={this.saveArticle} />
 					</form>
 					</div>
 					<div className="each">
 					<div className="headline"><a href={this.props.results.response.docs[3].web_url}>{this.props.results.response.docs[3].headline.main}</a></div>
 					<div className="lead">{this.props.results.response.docs[3].lead_paragraph}</div>
-					<form action="/save" method="POST">
+					<form>
 						<input name="link" type="hidden" value={this.props.results.response.docs[3].web_url} />
 						<input name="headline" type="hidden" value={this.props.results.response.docs[3].headline.main} />
 						<input name="lead" type="hidden" value={this.props.results.response.docs[3].lead_paragraph} />
-						<input type="submit" value="Submit" onClick={this.pullArticles} />
+						<input id="3" type="submit" value="Submit" onClick={this.saveArticle} />
 					</form>
 					</div>
 					<div className="each">
 					<div className="headline"><a href={this.props.results.response.docs[4].web_url}>{this.props.results.response.docs[4].headline.main}</a></div>
 					<div className="lead">{this.props.results.response.docs[4].lead_paragraph}</div>
-					<form action="/save" method="POST">
+					<form>
 						<input name="link" type="hidden" value={this.props.results.response.docs[4].web_url} />
 						<input name="headline" type="hidden" value={this.props.results.response.docs[4].headline.main} />
 						<input name="lead" type="hidden" value={this.props.results.response.docs[4].lead_paragraph} />
-						<input type="submit" value="Submit" onClick={this.pullArticles} />
+						<input id="4" type="submit" value="Submit" onClick={this.saveArticle} />
 					</form>
 					</div>
 				</div>

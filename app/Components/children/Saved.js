@@ -42,8 +42,8 @@ var Saved = React.createClass({
 	render: function() {
 		var toReturn = [];
 
-		for (var i = 0; i< this.state.savedArticles.length; i++) {
-				toReturn.push(<div className="each" key={i}><div className="headline"><a href={this.state.savedArticles[i].link}>{this.state.savedArticles[i].headline}</a></div><div className="lead">{this.state.savedArticles[i].lead}</div></div>);
+		for (var i = 0; i< this.props.savedArticles.length; i++) {
+				toReturn.push(<div className="each" key={i}><div className="headline"><a href={this.props.savedArticles[i].link}>{this.props.savedArticles[i].headline}</a></div><div className="lead">{this.props.savedArticles[i].lead}</div></div>);
 		}
 
 		return (

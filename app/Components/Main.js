@@ -3,6 +3,8 @@ var React = require("react");
 
 var Link = require("react-router").Link;
 
+var path = require("path");
+
 var Search = require("./children/Search.js");
 
 var Results = require("./children/Results.js");
@@ -25,6 +27,21 @@ var Main = React.createClass({
 		}
 	},
 
+	componentDidMount: function() {
+		var url = (path.join(__dirname, "pullArticles"));
+		$.ajax({
+			context: this,
+			url: url,
+			method: "GET"
+		}).done(function(results) {
+			//console.log(results);
+			//results = JSON.stringify(results);
+			this.setState({ saved: results});	
+		}).fail(function(error) {
+			throw error;
+		});
+	},
+
 	componentDidUpdate: function(prevProps, prevState) {
 		if (trigger === false) {
 			trigger = true;
@@ -40,7 +57,6 @@ var Main = React.createClass({
 				url: url,
 				method: "GET"
 			}).done(function(results) {
-				console.log(results);
 				this.setState({ results: results });
 			}).fail(function(error) {
 				throw error;
